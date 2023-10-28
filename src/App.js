@@ -1,14 +1,19 @@
 import React, { PureComponent } from 'react'
-import Stars from './components/Stars'
 import './App.css'
+import Stars from './components/Stars/Stars'
+import Works from './pages/Works'
+import Resume from './pages/Resume'
 
 export default class App extends PureComponent {
+  
   render() {
+    
     return (
-      <div className='container'>
+      <div className='main'>
         <Stars/>
-        <div className='title'>div here</div>
+        <Resume/>
       </div>
     )
   }
 }
+

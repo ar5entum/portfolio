@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { Canvas,  useFrame } from '@react-three/fiber'
 import css from './Stars.css'
-import { UnrealBloomPass } from "three-stdlib";
 
 
 
@@ -12,15 +11,15 @@ const Star = ({position, color}) => {
       position={position} 
       scale={1}
       >
-      <sphereGeometry args={[.02, 100, 50]} />
-      <pointsMaterial color={color} opacity={0.7}/>
+      <tetrahedronGeometry args={[.04, 0]} />
+      <meshNormalMaterial color={color} opacity={0.7}/>
     </mesh>
   )
 }
 
 function starGenerator() {
   let stars = []
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 170; i++) {
     var x = Math.floor(Math.random() * 20 - 10);
     var y = Math.floor(Math.random() * 20 - 10);
     var z = Math.floor(Math.random() * 20 - 10);

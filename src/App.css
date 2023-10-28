@@ -3,23 +3,52 @@
 * {
   margin: 0;
   padding: 0;
-  color: white;
+  color: rgb(254, 254, 254);
+  font-family: "Urbanist", sans-serif;
 }
 
-.title {
+.flexContainer {
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 60px;
-  font-family: "Urbanist", sans-serif;
   height: 100vh;
+  /* padding-top: 10vh; */
   width: 100vw;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
 }
 
-.container {
+.main {
   position: relative;
   background-color: black;
+}
+
+.contentContainer {
+  /* background-color: red;  */
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  padding-top: 10vh;
+  /* border-style: solid; 
+  border-width: 1px;
+  border-color: red; */
+  /* justify-content: space-between; */
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+h3 {
+  font-size: 50px;
+  font-weight: 200;
+}
+
+p {
+  font-size: 18px;
 }
