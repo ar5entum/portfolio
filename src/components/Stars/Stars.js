@@ -1,6 +1,7 @@
 import { useRef } from 'react'
-import { Canvas,  useFrame } from '@react-three/fiber'
+import { Canvas,  useFrame, useThree } from '@react-three/fiber'
 import css from './Stars.css'
+import { PointMaterial } from '@react-three/drei'
 
 
 
@@ -11,8 +12,8 @@ const Star = ({position, color}) => {
       position={position} 
       scale={1}
       >
-      <tetrahedronGeometry args={[.04, 0]} />
-      <meshNormalMaterial color={color} opacity={0.7}/>
+      <sphereGeometry args={[.02, 0]} />
+      <PointMaterial color={color} opacity={0.7}/>
     </mesh>
   )
 }
@@ -22,7 +23,7 @@ function starGenerator() {
   for (var i = 0; i < 170; i++) {
     var x = Math.floor(Math.random() * 20 - 10);
     var y = Math.floor(Math.random() * 20 - 10);
-    var z = Math.floor(Math.random() * 20 - 10);
+    var z = Math.floor(Math.random() * 20 - 10);  
     stars[i] = [x, y, z]
   }
   return stars
@@ -52,6 +53,8 @@ const stars = starGenerator().map((cords, i) =>
 // }
 
 const StarField = () => {
+  const { camera } = useThree()
+  camera.position.set(0,0,0)
   const cameraRef = useRef();
 
   useFrame(() => {
@@ -62,10 +65,12 @@ const StarField = () => {
     {stars}</mesh>);
 }
 
-export default () => (
+const Stars = () => (
   <div className={css.scene}>
   <Canvas className={css.canvas}
   style={{height:"100vh"}}>
     <StarField/>
   </Canvas>
-  </div>)                                                                                                                                                  
+  </div>)            
+  
+export default Stars

@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Manrope:wght@200;400;700&display=swap");
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Style the navigation bar */
+nav {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  height: 7vh;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+/* Style the social media icons */
+nav ul img {
+  height: 32px;
+  margin: 0 5px;
+  color: white;
+}
+
+
+/* Hover effect on list items */
+
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .navbar {
+    top: auto;
+    bottom: 0;
+  }
+
+  nav {
+    justify-content: space-around;
+  }
+
+  .navTitle {
+    display: none;
+  }
+
+}
