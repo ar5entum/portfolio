@@ -55,8 +55,11 @@ nav ul img {
     justify-content: space-around;
   }
 
-  .navTitle {
+  /* .navTitle {
+    display: none;
+  } */
+
+  nav ul img {
     display: none;
   }
-
 }

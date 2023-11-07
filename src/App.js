@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
 import './App.css'
 import Stars from './components/Stars/Stars'
-import Works from './pages/Works'
-import Resume from './pages/Resume'
+import Archive from './pages/Archive'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar/NavBar'
 import Home from './pages/Home'
@@ -18,8 +17,7 @@ export default class App extends PureComponent {
         <Stars/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="works" element={<Works/>}/>
-        <Route path="resume" element={<Resume/>}/>
+        <Route path="archive" element={<Archive/>}/>
       </Routes>
       </div>
       </BrowserRouter>
