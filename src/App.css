@@ -36,7 +36,7 @@
 
 .main {
   position: relative;
-  background-color: black;
+  background-color: #293241;
 }
 
 .contentContainer {
@@ -59,7 +59,7 @@
 
 h3 {
   font-size: 50px;
-  font-weight: 200;
+  font-weight: 200; 
 }
 
 p {

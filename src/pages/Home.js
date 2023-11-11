@@ -4,7 +4,7 @@ export default class Home extends PureComponent {
   render() {
     return (
         <div className='centerContainer'>
-                    <h3>Namaste </h3>
+                    <h3>Hello</h3>
                     </div>
     )
   }
