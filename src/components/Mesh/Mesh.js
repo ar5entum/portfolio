@@ -12,8 +12,8 @@ const Mesh = () => {
     function: "0.15*(x^2 - z^2)",
     position: { x: Math.random() * 10 - 5, z: Math.random() * 10 - 5 },
     optimizer: {
-      value: "sgd",
-      options: ["momentum", "nestrov", "adagrad", "rmsprop", "adam"],
+      value: "adam",
+      options: ["momentum", "nestrov", "adagrad", "rmsprop", "sgd"],
     },
     learning_rate: 0.1,
     momentum: 0.9,
@@ -174,10 +174,49 @@ const Mesh = () => {
     return [xPos, yPos, zPos, [Gx, Gz]];
   };
 
+  const Adam = (x, z, lr, beta, m, v, t) => {
+    t += 1;
+
+    const beta1 = beta;
+    const beta2 = 0.99;
+
+    const epsilon = 1e-8;
+
+    // Calculate gradients
+    const dx = partialX(x, z);
+    const dz = partialZ(x, z);
+
+    // Update first moment estimates (like momentum)
+    const mx = beta1 * m[0] + (1 - beta1) * dx;
+    const mz = beta1 * m[1] + (1 - beta1) * dz;
+
+    // Update second moment estimates (like RMSprop)
+    const vx = beta2 * v[0] + (1 - beta2) * dx ** 2;
+    const vz = beta2 * v[1] + (1 - beta2) * dz ** 2;
+
+    // // Bias correction for the first moment
+    // const m_hatx = mx / (1 - Math.pow(beta1, t));
+    // const m_hatz = mz / (1 - Math.pow(beta1, t));
+
+    // // Bias correction for the second moment
+    // const v_hatx = vx / (1 - Math.pow(beta2, t));
+    // const v_hatz = vz / (1 - Math.pow(beta2, t));
+
+    // Update parameters
+    const xPos = x - (lr / (math.sqrt(vx) + epsilon)) * mx;
+    const zPos = z - (lr / (math.sqrt(vz) + epsilon)) * mz;
+    const yPos = calculateY(xPos, zPos);
+
+    // Return the updated parameters and moment estimates
+    return [xPos, yPos, zPos, [mx, mz], [vx, vz], t];
+  };
+
   const SphereMesh = () => {
     const [x, z] = [params.position.x, params.position.z];
-    var velocity = [0.1, 0.1];
     var G = [0, 0];
+    var v = [0.1, 0.1];
+    var m = [0.1, 0.1];
+    var t = 0;
     const ref = useRef();
     useFrame(() => {
       switch (params.optimizer) {
@@ -197,13 +236,13 @@ const Mesh = () => {
             ref.current.position.x,
             ref.current.position.y,
             ref.current.position.z,
-            velocity,
+            v,
           ] = Momentum(
             ref.current.position.x,
             ref.current.position.z,
             params.learning_rate,
             params.momentum,
-            velocity
+            v
           );
           break;
         case "nestrov":
@@ -211,13 +250,13 @@ const Mesh = () => {
             ref.current.position.x,
             ref.current.position.y,
             ref.current.position.z,
-            velocity,
+            v,
           ] = Nestrov(
             ref.current.position.x,
             ref.current.position.z,
             params.learning_rate,
             params.momentum,
-            velocity
+            v
           );
           break;
         case "adagrad":
@@ -245,6 +284,24 @@ const Mesh = () => {
             params.learning_rate,
             G,
             params.momentum
+          );
+          break;
+        case "adam":
+          [
+            ref.current.position.x,
+            ref.current.position.y,
+            ref.current.position.z,
+            m,
+            v,
+            t,
+          ] = Adam(
+            ref.current.position.x,
+            ref.current.position.z,
+            params.learning_rate,
+            params.momentum,
+            m,
+            v,
+            t
           );
           break;
         default:
