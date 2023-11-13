@@ -13,7 +13,7 @@ const Mesh = () => {
     position: { x: Math.random() * 10 - 5, z: Math.random() * 10 - 5 },
     optimizer: {
       value: "adam",
-      options: ["momentum", "nestrov", "adagrad", "rmsprop", "sgd"],
+      options: ["sgd", "momentum", "nestrov", "adagrad", "rmsprop"],
     },
     learning_rate: 0.1,
     momentum: 0.9,
@@ -22,17 +22,29 @@ const Mesh = () => {
 
   const calculateY = (x0, z0) => {
     let scope = { x: x0, z: z0 };
-    return math.evaluate(params.function, scope);
+    try {
+      return math.evaluate(params.function, scope);
+    } catch (e) {
+      return math.evaluate("0", scope);
+    }
   };
 
   const partialX = (x0, z0) => {
     let scope = { x: x0, z: z0 };
-    return math.derivative(params.function, "x").evaluate(scope);
+    try {
+      return math.derivative(params.function, "x").evaluate(scope);
+    } catch (e) {
+      return math.derivative("0", "x").evaluate(scope);
+    }
   };
 
   const partialZ = (x0, z0) => {
     let scope = { x: x0, z: z0 };
-    return math.derivative(params.function, "z").evaluate(scope);
+    try {
+      return math.derivative(params.function, "z").evaluate(scope);
+    } catch (e) {
+      return math.derivative("0", "z").evaluate(scope);
+    }
   };
 
   const GradientMesh = () => {
@@ -329,7 +341,6 @@ const Mesh = () => {
       <Canvas className={css.canvas} style={{ height: "100vh" }}>
         <GradientMesh />
         <SphereMesh />
-        <pointLight position={[0, 5, 0]} intensity={10} color="#fff" />
       </Canvas>
     </div>
   );

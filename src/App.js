@@ -8,6 +8,7 @@ import Resume from "./pages/Resume";
 import Home from "./pages/Home";
 import Simulator from "./pages/Simulator";
 import { Leva } from "leva";
+import NoPage from "./pages/NoPage";
 
 export default class App extends PureComponent {
   render() {
@@ -22,6 +23,7 @@ export default class App extends PureComponent {
             <Route path="archive" element={<Archive />} />
             <Route path="resume" element={<Resume />} />
             <Route path="simulator" element={<Simulator />} />
+            <Route path="*" element={<NoPage />} />
           </Routes>
         </div>
       </BrowserRouter>

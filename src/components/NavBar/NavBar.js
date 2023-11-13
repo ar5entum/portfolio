@@ -24,21 +24,23 @@ export default class NavBar extends PureComponent {
               <Link to="simulator">Simulator</Link>
             </li>
             <span />
-            <li>
-              <a href="https://www.linkedin.com/in/astitva-jaiswal/">
-                <img src={linkedin} id="linkedin" alt="linkedin" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.kaggle.com/ar5entum">
-                <img src={kaggle} id="kaggle" alt="kaggle" />
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/ar5entum">
-                <img src={github} id="github" alt="github" />
-              </a>
-            </li>
+            <div className="socials">
+              <li>
+                <a href="https://www.linkedin.com/in/astitva-jaiswal/">
+                  <img src={linkedin} id="linkedin" alt="linkedin" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.kaggle.com/ar5entum">
+                  <img src={kaggle} id="kaggle" alt="kaggle" />
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/ar5entum">
+                  <img src={github} id="github" alt="github" />
+                </a>
+              </li>
+            </div>
           </ul>
         </nav>
       </div>
