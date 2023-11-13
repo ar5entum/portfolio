@@ -15,6 +15,14 @@ export default class Home extends PureComponent {
               This background serves as a real-time simulation tool designed for
               understanding machine learning optimizers.
             </div>
+            <p>
+              Machine learning optimizers adjust model parameters (weights and
+              biases) to minimize a mathematical function by iteratively
+              updating weights using gradients, aiming to find the optimal
+              configuration for accurate predictions. These algorithms
+              iteratively attempt to find the global minimas of differentiable
+              functions.
+            </p>
             <div>
               {/* <button className="button-27"> */}
               <Link to="simulator" className="button-27">
