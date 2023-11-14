@@ -4,10 +4,12 @@ import { BufferGeometry, Float32BufferAttribute } from "three";
 import { CameraControls } from "@react-three/drei";
 
 import css from "./Mesh.css";
-import { useControls } from "leva";
+import { useControls, monitor } from "leva";
 const math = require("mathjs");
 
 const Mesh = () => {
+  const lossRef = React.useRef(0);
+
   const params = useControls({
     function: "0.15*(x^2 - z^2)",
     position: { x: Math.random() * 10 - 5, z: Math.random() * 10 - 5 },
@@ -18,6 +20,7 @@ const Mesh = () => {
     learning_rate: 0.1,
     momentum: 0.9,
     freeze: false,
+    loss: monitor(lossRef, { graph: true, interval: 0.01 }),
   });
 
   const calculateY = (x0, z0) => {
@@ -187,8 +190,6 @@ const Mesh = () => {
   };
 
   const Adam = (x, z, lr, beta, m, v, t) => {
-    t += 1;
-
     const beta1 = beta;
     const beta2 = 0.99;
 
@@ -205,14 +206,6 @@ const Mesh = () => {
     // Update second moment estimates (like RMSprop)
     const vx = beta2 * v[0] + (1 - beta2) * dx ** 2;
     const vz = beta2 * v[1] + (1 - beta2) * dz ** 2;
-
-    // // Bias correction for the first moment
-    // const m_hatx = mx / (1 - Math.pow(beta1, t));
-    // const m_hatz = mz / (1 - Math.pow(beta1, t));
-
-    // // Bias correction for the second moment
-    // const v_hatx = vx / (1 - Math.pow(beta2, t));
-    // const v_hatz = vz / (1 - Math.pow(beta2, t));
 
     // Update parameters
     const xPos = x - (lr / (math.sqrt(vx) + epsilon)) * mx;
@@ -315,6 +308,7 @@ const Mesh = () => {
             v,
             t
           );
+          t += 1;
           break;
         default:
           [
@@ -327,6 +321,8 @@ const Mesh = () => {
             params.learning_rate
           );
       }
+      lossRef.current =
+        ref.current.position.y > -10 ? ref.current.position.y : -10;
     });
     return (
       <mesh ref={ref} position={[x, calculateY(x, z), z]}>

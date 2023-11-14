@@ -36,7 +36,21 @@ nav li {
 }
 
 /* Style the social media icons */
-nav ul img {
+
+#linkedin {
+  height: 32px;
+  height: 32px;
+  margin: 0 5px;
+  color: white;
+}
+
+#github {
+  height: 32px;
+  margin: 0 5px;
+  color: white;
+}
+
+#kaggle {
   height: 32px;
   margin: 0 5px;
   color: white;
