@@ -5,6 +5,7 @@ import Archive from "./pages/Archive";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Resume from "./pages/Resume";
+import Publications from "./pages/Publications";
 import Home from "./pages/Home";
 import Simulator from "./pages/Simulator";
 import { Leva } from "leva";
@@ -22,6 +23,7 @@ export default class App extends PureComponent {
             <Route path="/" element={<Home />} />
             <Route path="archive" element={<Archive />} />
             <Route path="resume" element={<Resume />} />
+            <Route path="publications" element={<Publications />} />
             <Route path="simulator" element={<Simulator />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
