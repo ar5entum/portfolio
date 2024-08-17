@@ -120,6 +120,31 @@ p {
   padding-top: 20px;
 }
 
+.huggingface {
+  background-color: #2b3142;
+  padding: 10px;
+  font-size: x-large;
+  font-weight: 400;
+  border-radius: 15px;
+  margin-top: 10px;
+  color: #707b97;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out, transform 0.4s ease-in-out; /* Add transitions */
+}
+
+.huggingface:hover {
+  background-color: #373e50; /* Darker background on hover */
+  color: #eee;
+  transform: scale(1.01); /* Slight zoom on hover */
+  cursor: pointer; /* Change cursor to indicate interactivity */
+}
+
+.hf-description {
+  font-size: 18px;
+  color: rgb(201, 201, 201);
+  background-color: transparent;
+}
+
 @media screen and (max-width: 768px) {
   .mobileSocials {
     display: flex;

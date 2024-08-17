@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import "./NavBar.css";
 import linkedin from "./images/linkedin.svg";
 import github from "./images/github.svg";
+import huggingface from "./images/huggingface.svg";
 import kaggle from "./images/kaggle.svg";
 import { Link } from "react-router-dom";
 
@@ -38,6 +39,11 @@ export default class NavBar extends PureComponent {
               <li>
                 <a href="https://github.com/ar5entum">
                   <img src={github} id="github" alt="github" />
+                </a>
+              </li>
+              <li>
+                <a href="https://huggingface.co/ar5entum">
+                  <img src={huggingface} id="huggingface" alt="huggingface" />
                 </a>
               </li>
             </div>

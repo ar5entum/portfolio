@@ -7,6 +7,17 @@ export default class Archive extends PureComponent {
         <div className='contentContainer'>
                     <h3>Works</h3>
                     <div className='content'>
+                      <p>huggingFace models</p>
+                      <a href="https://huggingface.co/ar5entum/marianMT_hin_eng_cs" className='huggingface'>
+                          ar5entum/marianMT_hin_eng_cs
+                        <p className="hf-description">This Bart based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
+                      </a>
+                      <div className="huggingface">
+                          ar5entum/bart_hin_eng_cs
+                        <p className="hf-description">This MarianMT based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
+                      </div>
+                    </div>
+                    <div className='content'>
                       <p>CNN brain tumor detection</p>
                       <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7094910522713681921?compact=1" height="85%" frameborder="1" allowfullscreen="" title="Embedded post"></iframe>
                     </div>
