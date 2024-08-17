@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import linkedin from "../components/NavBar/images/linkedin.svg";
 import github from "../components/NavBar/images/github.svg";
 import kaggle from "../components/NavBar/images/kaggle.svg";
+import huggingface from "../components/NavBar/images/huggingface.svg";
 
 export default class Home extends PureComponent {
   render() {
@@ -38,6 +39,9 @@ export default class Home extends PureComponent {
               </a>
               <a href="https://github.com/ar5entum">
                 <img src={github} id="github" alt="github" />
+              </a>
+              <a href="https://huggingface.co/ar5entum">
+                <img src={huggingface} id="huggingface" alt="huggingface" />
               </a>
             </div>
           </div>
