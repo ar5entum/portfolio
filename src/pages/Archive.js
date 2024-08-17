@@ -10,12 +10,12 @@ export default class Archive extends PureComponent {
                       <p>huggingFace models</p>
                       <a href="https://huggingface.co/ar5entum/marianMT_hin_eng_cs" className='huggingface'>
                           ar5entum/marianMT_hin_eng_cs
+                        <p className="hf-description">This MarianMT based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
+                      </a>
+                      <a href="https://huggingface.co/ar5entum/bart_hin_eng_cs" className='huggingface'>
+                          ar5entum/bart_hin_eng_cs
                         <p className="hf-description">This Bart based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
                       </a>
-                      <div className="huggingface">
-                          ar5entum/bart_hin_eng_cs
-                        <p className="hf-description">This MarianMT based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
-                      </div>
                     </div>
                     <div className='content'>
                       <p>CNN brain tumor detection</p>
