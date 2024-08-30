@@ -8,6 +8,14 @@ export default class Archive extends PureComponent {
                     <h3>Works</h3>
                     <div className='content'>
                       <p>huggingFace models</p>
+                      <a href="https://huggingface.co/ar5entum/bart_eng_hin_mt" className='huggingface'>
+                          ar5entum/bart_eng_hin_mt
+                        <p className="hf-description">Bart machine translation for english to hindi.</p>
+                      </a>
+                      <a href="https://huggingface.co/ar5entum/bart_hin_eng_mt" className='huggingface'>
+                          ar5entum/bart_hin_eng_mt
+                        <p className="hf-description">Bart machine translation for hindi to english.</p>
+                      </a>
                       <a href="https://huggingface.co/ar5entum/marianMT_hin_eng_cs" className='huggingface'>
                           ar5entum/marianMT_hin_eng_cs
                         <p className="hf-description">This MarianMT based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
