@@ -7,7 +7,15 @@ export default class Archive extends PureComponent {
         <div className='contentContainer'>
                     <h3>Works</h3>
                     <div className='content'>
-                      <p>huggingFace models</p>
+                      <p>HuggingFace Models</p>
+                      <a href="https://huggingface.co/ar5entum/bart_rom_dev_tl" className='huggingface'>
+                          ar5entum/bart_rom_dev_tl
+                        <p className="hf-description">Bart machine transliteration for roman to devnagiri.</p>
+                      </a>
+                      <a href="https://huggingface.co/ar5entum/bart_dev_rom_tl" className='huggingface'>
+                          ar5entum/bart_dev_rom_tl
+                        <p className="hf-description">Bart machine transliteration for devnagiri to roman.</p>
+                      </a>
                       <a href="https://huggingface.co/ar5entum/bart_eng_hin_mt" className='huggingface'>
                           ar5entum/bart_eng_hin_mt
                         <p className="hf-description">Bart machine translation for english to hindi.</p>
@@ -20,9 +28,14 @@ export default class Archive extends PureComponent {
                           ar5entum/marianMT_hin_eng_cs
                         <p className="hf-description">This MarianMT based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
                       </a>
-                      <a href="https://huggingface.co/ar5entum/bart_hin_eng_cs" className='huggingface'>
-                          ar5entum/bart_hin_eng_cs
-                        <p className="hf-description">This Bart based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
+                      <p>HuggingFace Datasets</p>
+                      <a href="https://huggingface.co/datasets/ar5entum/hindi-english-roman-devnagiri-transliteration-corpus" className='huggingface'>
+                          ar5entum/hindi-english-roman-devnagiri-transliteration-corpus
+                        <p className="hf-description">Transliteration corpus for roman and devnagiri.</p>
+                      </a>
+                      <a href="https://huggingface.co/datasets/ar5entum/hindi-english-code-mixed" className='huggingface'>
+                          ar5entum/hindi-english-code-mixed
+                        <p className="hf-description">Code mixed dataset for hindi to hinglish (hindi english code mixed).</p>
                       </a>
                     </div>
                     <div className='content'>
