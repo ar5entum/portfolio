@@ -50,7 +50,7 @@ export default class Archive extends PureComponent {
                     </div>
                     <div className='content'>
                       <p>CNN brain tumor detection</p>
-                      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7094910522713681921?compact=1" height="85%" frameborder="" allowfullscreen="" title="Embedded post"></iframe>
+                      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7094910522713681921?compact=1" height="85%" frameborder="  " allowfullscreen="" title="Embedded post"></iframe>
                     </div>
         
                     <div className='content'>
