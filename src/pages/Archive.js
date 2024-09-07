@@ -6,7 +6,7 @@ export default class Archive extends PureComponent {
         <div className='flexContainer'>
         <div className='contentContainer'>
                     <h3>Works</h3>
-                    <div className='content'>
+                    <div className='flexi-content'>
                       <p>HuggingFace Models</p>
                       <a href="https://huggingface.co/ar5entum/bart_rom_dev_tl" className='huggingface'>
                           ar5entum/bart_rom_dev_tl
@@ -29,18 +29,28 @@ export default class Archive extends PureComponent {
                         <p className="hf-description">This MarianMT based model effectively handles the complexities of code-switching, producing output that accurately reflects the intended language mixing.</p>
                       </a>
                       <p>HuggingFace Datasets</p>
-                      <a href="https://huggingface.co/datasets/ar5entum/hindi-english-roman-devnagiri-transliteration-corpus" className='huggingface'>
-                          ar5entum/hindi-english-roman-devnagiri-transliteration-corpus
-                        <p className="hf-description">Transliteration corpus for roman and devnagiri.</p>
-                      </a>
-                      <a href="https://huggingface.co/datasets/ar5entum/hindi-english-code-mixed" className='huggingface'>
-                          ar5entum/hindi-english-code-mixed
-                        <p className="hf-description">Code mixed dataset for hindi to hinglish (hindi english code mixed).</p>
-                      </a>
+                      </div>
+                      <div className='flexi-content'>
+                      <iframe
+                        src="https://huggingface.co/datasets/ar5entum/hindi-english-roman-devnagiri-transliteration-corpus/embed/viewer/default/train"
+                        frameborder="10"
+                        width="100%"
+                        height="560px"
+                        title='hindi-english-roman-devnagiri-transliteration-corpus'
+                      ></iframe>
+                      </div>
+                      <div className='flexi-content'>
+                      <iframe
+                        src="https://huggingface.co/datasets/ar5entum/hindi-english-code-mixed/embed/viewer/default/train"
+                        frameborder="10"
+                        width="100%"
+                        height="560px"
+                        title='ar5entum/hindi-english-code-mixed  '
+                      ></iframe>
                     </div>
                     <div className='content'>
                       <p>CNN brain tumor detection</p>
-                      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7094910522713681921?compact=1" height="85%" frameborder="1" allowfullscreen="" title="Embedded post"></iframe>
+                      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7094910522713681921?compact=1" height="85%" frameborder="" allowfullscreen="" title="Embedded post"></iframe>
                     </div>
         
                     <div className='content'>

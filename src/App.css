@@ -49,6 +49,12 @@
   height: 80vh;
 }
 
+.flexi-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
 h3 {
   font-size: 5vh;
   font-weight: 400;
