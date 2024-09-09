@@ -8,6 +8,10 @@ export default class Archive extends PureComponent {
                     <h3>Works</h3>
                     <div className='flexi-content'>
                       <p>HuggingFace Models</p>
+                      <a href="https://huggingface.co/ar5entum/marianMT_bi_dev_rom_tl" className='huggingface'>
+                        ar5entum/marianMT_bi_dev_rom_tl
+                        <p className="hf-description">MarianMT bidirectional machine transliteration for roman to devnagiri.</p>
+                      </a>
                       <a href="https://huggingface.co/ar5entum/bart_rom_dev_tl" className='huggingface'>
                           ar5entum/bart_rom_dev_tl
                         <p className="hf-description">Bart machine transliteration for roman to devnagiri.</p>
