@@ -31,11 +31,12 @@ export function TiltCard({ children, className = "" }: { children: ReactNode; cl
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={reduce ? undefined : { rotateX: rx, rotateY: ry, transformPerspective: 900 }}
-      className={`relative group ${className}`}
+      className={`relative isolate group ${className}`}
     >
+      {/* z-[-1] inside `isolate`: paints over the card background but under the content */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="pointer-events-none absolute inset-0 -z-10 rounded-[inherit] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
           // motion drives the two CSS vars; the gradient reads them
           ["--gx" as string]: glowX,
@@ -43,7 +44,7 @@ export function TiltCard({ children, className = "" }: { children: ReactNode; cl
           backgroundImage: "radial-gradient(360px circle at var(--gx) var(--gy), color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%)",
         }}
       />
-      <div className="relative">{children}</div>
+      {children}
     </motion.div>
   );
 }
