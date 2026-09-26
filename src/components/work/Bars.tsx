@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
-type Row = { label: string; value: number };
+type Row = { label: string; value: number; muted?: boolean };
 
 /**
  * Horizontal bar chart: one series, one axis, single hue, direct labels.
@@ -32,7 +32,7 @@ export function Bars({
         {reference && (
           <div
             aria-hidden
-            className="absolute top-0 bottom-0 border-l border-dashed border-line-strong"
+            className="pointer-events-none absolute top-0 bottom-0 z-10 border-l border-dashed border-fg"
             style={{ left: `calc(9rem + (100% - 9rem) * ${reference.value / max})` }}
           >
             <span className="absolute -top-5 -translate-x-1/2 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-fg-faint whitespace-nowrap">
@@ -52,7 +52,7 @@ export function Bars({
             <div className="relative h-[22px]">
               <motion.div
                 className="absolute inset-y-0 left-0 rounded-r-[4px]"
-                style={{ background: "var(--accent-2)", opacity: hover === null || hover === i ? 1 : 0.55 }}
+                style={{ background: r.muted ? "var(--fg-faint)" : "var(--accent-2)", opacity: hover === null || hover === i ? 1 : 0.55 }}
                 initial={reduce ? { width: `${(r.value / max) * 100}%` } : { width: 0 }}
                 whileInView={{ width: `${(r.value / max) * 100}%` }}
                 viewport={{ once: true, amount: 0.6 }}

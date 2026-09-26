@@ -9,7 +9,7 @@ import { Counter } from "@/components/ui/Counter";
 
 export function Research() {
   const ref = useSceneSection<HTMLElement>("rastrigin", "research");
-  const featured = research.find((r) => r.featured)!;
+  const featured = research.filter((r) => r.featured);
   const rest = research.filter((r) => !r.featured);
 
   return (
@@ -20,35 +20,40 @@ export function Research() {
           <SplitText text="Where models fail, not just where they rank." em={["fail,"]} />
         </h2>
 
-        <Reveal>
-          <Link href={featured.href} className="block" style={{ viewTransitionName: "captionbench-card" }}>
-            <TiltCard className="card card-featured grid md:grid-cols-12 gap-8">
-              <div className="md:col-span-7 flex flex-col gap-5">
-                <div className="flex items-center gap-3">
-                  <span className="tag tag-accent">Featured</span>
-                  <span className="eyebrow">
-                    {featured.venue} · {featured.year}
-                  </span>
-                </div>
-                <h3 className="display text-[clamp(2.4rem,6vw,5rem)]" style={{ viewTransitionName: "captionbench-title" }}>
-                  {featured.title}
-                </h3>
-                <p className="text-fg-muted text-[1.05rem] leading-relaxed max-w-[52ch]">{featured.summary}</p>
-                <span className="link-arrow mt-auto">Read the case study</span>
-              </div>
-              <dl className="md:col-span-5 grid grid-cols-2 gap-x-6 gap-y-8 content-center">
-                {featured.stats?.map((s) => (
-                  <div key={s.label}>
-                    <dt className="eyebrow mb-2">{s.label}</dt>
-                    <dd className="font-display text-[2.4rem] leading-none tabular-nums">
-                      <Counter value={s.value} />
-                    </dd>
+        <div className="grid gap-6">
+          {featured.map((f, fi) => (
+            <Reveal key={f.id} delay={fi * 2}>
+              <Link href={f.href} className="block" style={{ viewTransitionName: `${f.id}-card` }}>
+                <TiltCard className="card card-featured grid md:grid-cols-12 gap-8">
+                  <div className="md:col-span-7 flex flex-col gap-5">
+                    <div className="flex items-center gap-3">
+                      <span className="tag tag-accent">{fi === 0 ? "Featured" : "New"}</span>
+                      {f.id === "viera" && <span className="tag">codename</span>}
+                      <span className="eyebrow">
+                        {f.venue} · {f.year}
+                      </span>
+                    </div>
+                    <h3 className="display text-[clamp(2.4rem,6vw,5rem)]" style={{ viewTransitionName: `${f.id}-title` }}>
+                      {f.title}
+                    </h3>
+                    <p className="text-fg-muted text-[1.05rem] leading-relaxed max-w-[52ch]">{f.summary}</p>
+                    <span className="link-arrow mt-auto">Read the case study</span>
                   </div>
-                ))}
-              </dl>
-            </TiltCard>
-          </Link>
-        </Reveal>
+                  <dl className="md:col-span-5 grid grid-cols-2 gap-x-6 gap-y-8 content-center">
+                    {f.stats?.map((s) => (
+                      <div key={s.label}>
+                        <dt className="eyebrow mb-2">{s.label}</dt>
+                        <dd className="font-display text-[2.4rem] leading-none tabular-nums">
+                          <Counter value={s.value} />
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </TiltCard>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
 
         <ul className="mt-6 divide-y hairline border-y">
           {rest.map((r, i) => (

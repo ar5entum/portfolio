@@ -538,3 +538,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .glitch::before, .glitch::after { display: none; }
 }
+
+/* viera camera-path draw-on */
+.camera-path {
+  stroke-dashoffset: 600;
+  animation: draw-path 2.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+@keyframes draw-path {
+  to { stroke-dashoffset: 0; }
+}

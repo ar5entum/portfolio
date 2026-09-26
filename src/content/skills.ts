@@ -15,7 +15,7 @@ export const skills: Skill[] = [
     index: "01",
     title: "Multimodal evaluation & benchmarking",
     blurb:
-      "Designing benchmarks for video and image models: human-graded rubrics, failure-mode taxonomies, LLM-as-judge pipelines, inter-rater agreement and prompt optimisation. Probing where models fail, not just where they rank.",
+      "Designing benchmarks for video and image models: rubric design with human review, failure-mode taxonomies, LLM-as-judge pipelines, inter-rater agreement and prompt optimisation. Probing where models fail, not just where they rank.",
     tags: ["Rubrics", "LLM-as-judge", "DSPy / GEPA", "Video", "Agreement (κ)"],
     motif: "contour",
     href: "/work/captionbench",

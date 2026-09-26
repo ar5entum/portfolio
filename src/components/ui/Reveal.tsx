@@ -24,7 +24,7 @@ export function Reveal({
   children: ReactNode;
   delay?: number;
   className?: string;
-  as?: "div" | "p" | "li" | "span" | "section";
+  as?: "div" | "p" | "li" | "ul" | "span" | "section";
   once?: boolean;
 }) {
   const reduce = useReducedMotion();

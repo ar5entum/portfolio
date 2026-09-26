@@ -28,6 +28,23 @@ export const research: Research[] = [
     ],
   },
   {
+    // Codename on purpose. Don't add the project's real name, title or repo here.
+    id: "viera",
+    title: "Viera",
+    venue: "Deccan AI Research",
+    year: "2026",
+    summary:
+      "A system that never watches the video scores 65.8%. Asking models directly about seven low-level properties of video, half the field can't beat a blind constant answer.",
+    href: "/work/viera",
+    featured: true,
+    stats: [
+      { label: "Clips", value: "840" },
+      { label: "Human references", value: "5,880" },
+      { label: "Judged cells", value: "42,063" },
+      { label: "Blind baseline", value: "65.8%" },
+    ],
+  },
+  {
     id: "glaucoma",
     title: "A Critical Analysis of Approaches to Glaucoma Detection",
     venue: "IJARSCT · DOI 10.48175/IJARSCT-13871",
