@@ -41,9 +41,10 @@ export function Viera() {
       {/* header */}
       <header className="container-x" style={{ viewTransitionName: "viera-card" }}>
         <Reveal className="eyebrow mb-4">
-          // research · codename · {v.year}
+          // research · releasing soon · {v.year}
         </Reveal>
         <h1 className="display text-[clamp(3rem,10vw,9rem)] mb-6" style={{ viewTransitionName: "viera-title" }}>
+          <em className="block text-[0.4em] leading-none mb-3">Codename:</em>{" "}
           Viera
         </h1>
         <div className="grid md:grid-cols-12 gap-8 items-end">

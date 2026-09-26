@@ -30,7 +30,7 @@ export const research: Research[] = [
   {
     // Codename on purpose. Don't add the project's real name, title or repo here.
     id: "viera",
-    title: "Viera",
+    title: "Codename: Viera",
     venue: "Deccan AI Research",
     year: "2026",
     summary:

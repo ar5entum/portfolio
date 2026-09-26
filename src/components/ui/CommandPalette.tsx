@@ -78,7 +78,7 @@ export function CommandPalette() {
             CaptionBench <span className="cmdk-hint">/work/captionbench</span>
           </Command.Item>
           <Command.Item onSelect={() => run(() => router.push("/work/viera"))}>
-            Viera <span className="cmdk-hint">/work/viera</span>
+            Codename: Viera <span className="cmdk-hint">/work/viera</span>
           </Command.Item>
         </Command.Group>
 

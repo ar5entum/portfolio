@@ -27,14 +27,13 @@ export function Research() {
                 <TiltCard className="card card-featured grid md:grid-cols-12 gap-8">
                   <div className="md:col-span-7 flex flex-col gap-5">
                     <div className="flex items-center gap-3">
-                      <span className="tag tag-accent">{fi === 0 ? "Featured" : "New"}</span>
-                      {f.id === "viera" && <span className="tag">codename</span>}
+                      <span className="tag tag-accent">{f.id === "viera" ? "Releasing soon" : "Featured"}</span>
                       <span className="eyebrow">
                         {f.venue} · {f.year}
                       </span>
                     </div>
                     <h3 className="display text-[clamp(2.4rem,6vw,5rem)]" style={{ viewTransitionName: `${f.id}-title` }}>
-                      {f.title}
+                      <Title text={f.title} />
                     </h3>
                     <p className="text-fg-muted text-[1.05rem] leading-relaxed max-w-[52ch]">{f.summary}</p>
                     <span className="link-arrow mt-auto">Read the case study</span>
@@ -77,5 +76,17 @@ export function Research() {
         </ul>
       </div>
     </section>
+  );
+}
+
+/** "Codename: Viera" -> small italic "Codename:" over the name. */
+function Title({ text }: { text: string }) {
+  const m = text.match(/^(Codename:)\s*(.+)$/);
+  if (!m) return <>{text}</>;
+  return (
+    <>
+      <em className="block text-[0.42em] leading-none mb-2">{m[1]}</em>{" "}
+      {m[2]}
+    </>
   );
 }
