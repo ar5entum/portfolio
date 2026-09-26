@@ -53,12 +53,15 @@ export function SplitText({
   className = "",
   delay = 0,
   em,
+  wordClassName = "inline-block",
 }: {
   text: string;
   className?: string;
   delay?: number;
   /** words to render italic/accent */
   em?: string[];
+  /** e.g. "block md:inline-block" to force one word per line on small screens */
+  wordClassName?: string;
 }) {
   const reduce = useReducedMotion();
   const words = text.split(" ");
@@ -68,7 +71,7 @@ export function SplitText({
       {words.map((w, wi) => {
         const isEm = em?.includes(w.replace(/[^\w]/g, ""));
         return (
-          <span key={wi} className="inline-block whitespace-nowrap">
+          <span key={wi} className={`${wordClassName} whitespace-nowrap`}>
             {Array.from(w).map((ch, ci) => {
               const i = k++;
               return reduce ? (
