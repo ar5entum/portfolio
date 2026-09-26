@@ -243,6 +243,29 @@ function uploadTrail(w: Walker, hex: string, bg: THREE.Color, tmp: THREE.Color, 
     w.colors[i * 3 + 1] = g * boost;
     w.colors[i * 3 + 2] = b * boost;
   }
-  w.geom.setPositions(w.positions);
-  w.geom.setColors(w.colors);
+  // LineGeometry.setPositions/setColors allocate new buffers every call; write
+  // straight into the interleaved buffers it created the first time instead.
+  const pos = (w.geom.attributes.instanceStart as THREE.InterleavedBufferAttribute).data;
+  const col = (w.geom.attributes.instanceColorStart as THREE.InterleavedBufferAttribute).data;
+  const P = pos.array as Float32Array;
+  const C = col.array as Float32Array;
+  // segment i = [point i, point i+1], six floats each
+  for (let i = 0; i < TRAIL - 1; i++) {
+    const s = i * 6;
+    const a = i * 3;
+    P[s] = w.positions[a];
+    P[s + 1] = w.positions[a + 1];
+    P[s + 2] = w.positions[a + 2];
+    P[s + 3] = w.positions[a + 3];
+    P[s + 4] = w.positions[a + 4];
+    P[s + 5] = w.positions[a + 5];
+    C[s] = w.colors[a];
+    C[s + 1] = w.colors[a + 1];
+    C[s + 2] = w.colors[a + 2];
+    C[s + 3] = w.colors[a + 3];
+    C[s + 4] = w.colors[a + 4];
+    C[s + 5] = w.colors[a + 5];
+  }
+  pos.needsUpdate = true;
+  col.needsUpdate = true;
 }

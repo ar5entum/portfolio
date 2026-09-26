@@ -52,7 +52,7 @@ export function Nav() {
             type="button"
             onClick={openPalette}
             className="font-mono text-[0.72rem] tracking-[0.14em] uppercase text-fg-muted hover:text-fg transition-colors"
-            aria-label="Open command palette"
+            aria-label="⌘K: open command palette"
           >
             <kbd className="border hairline rounded px-1.5 py-0.5">⌘K</kbd>
           </button>
