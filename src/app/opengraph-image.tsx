@@ -62,7 +62,7 @@ export default function OG() {
         </svg>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: 72, width: "100%" }}>
           <div style={{ fontFamily: "monospace", fontSize: 22, letterSpacing: 4, color: "#9a9da6", textTransform: "uppercase" }}>
-            {site.role} · {site.company}
+            {`${site.role} · ${site.company}`}
           </div>
           <div style={{ display: "flex", fontSize: 128, lineHeight: 1, letterSpacing: -3, marginTop: 18 }}>
             <span>Astitva&nbsp;</span>
