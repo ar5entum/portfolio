@@ -1,7 +1,7 @@
 "use client";
 
 import { TransitionLink as Link } from "@/components/ui/TransitionLink";
-import { research } from "@/content/research";
+import { viera } from "@/content/viera";
 import { Reveal } from "@/components/ui/Reveal";
 import { Counter } from "@/components/ui/Counter";
 import { useSceneSection } from "@/components/ui/useSceneSection";
@@ -9,7 +9,7 @@ import { Bars } from "./Bars";
 
 // Codename page. Don't add the project's real name, title or repository here.
 
-const v = research.find((r) => r.id === "viera")!;
+const v = viera;
 const BLIND = 65.8;
 
 const models = [
